@@ -9,7 +9,7 @@
         td, th{padding:2px 5px;border-collapse:collapse;text-align:left; font-weight:normal;}
         thead tr th{background:#B0D1FC;border:1px solid white;}
 
-        tbody tr td{height:10px;border:0px solid black; vertical-align:top;}
+        tbody tr td{height:10px;border:1px solid black; vertical-align:top;}
 
         caption,tfoot{display:none;}
     </style>
@@ -19,9 +19,7 @@
 	<span>您好，${username}，您的${date?string('yyyy年MM月')}工资明细如下：
 </div>
 <table  cellspacing="1" >
-    <caption>
-        text
-    </caption>
+
     <thead>
     <tr>
         <th>姓名</th>
@@ -50,7 +48,7 @@
     <tr>
         <td>${username}</td>
     <#list salary as cell>
-        <td>${cell}<td>
+        <td>${cell}</td>
     </#list>
 
     </tr>
