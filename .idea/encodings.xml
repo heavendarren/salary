@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false">
+    <file url="file://$PROJECT_DIR$/src/com/yunxiang/salary/ReadExcelUtil.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/com/yunxiang/salary/SendMailUtil.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/lib/commons-email-1.4.jar" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/lib/commons-io-2.4.jar" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/lib/commons-lang3-3.3.2.jar" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/lib/commons-logging-1.0.4.jar" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/lib/dom4j-1.6.1.jar" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/lib/freemarker-2.3.20.jar" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/lib/javax.mail-1.5.2.jar" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/lib/poi-3.9.jar" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/lib/poi-ooxml-3.9.jar" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/lib/poi-ooxml-schemas-3.9.jar" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/lib/spring-context-4.1.9.RELEASE.jar" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/lib/spring-context-support-4.1.9.RELEASE.jar" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/lib/spring-core-4.1.9.RELEASE.jar" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/lib/xmlbeans-2.3.0.jar" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/salary.ftl" charset="UTF-8" />
+  </component>
+</project>
