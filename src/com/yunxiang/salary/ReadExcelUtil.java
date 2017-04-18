@@ -147,13 +147,21 @@ public class ReadExcelUtil {
                     if(row==null){
                         continue;
                     }
-                    String username =  row.getCell(0).getStringCellValue();
+                    Cell cell=row.getCell(0);
+                    if(cell==null){
+                        continue;
+                    }
+                    String username =  cell.getStringCellValue();
                     if(username==null||username.equals("")){
                         continue;
                     }
-                    String email =  row.getCell(1).getStringCellValue();
+                    Cell cell2=row.getCell(1);
+                    if(cell2==null){
+                        continue;
+                    }
+                    String email =  cell2.getStringCellValue();
                     emailMap.put(username,email);
-//                    System.out.println(username+"<<<<<<<<<<<<>"+email);
+                    System.out.println(username+"<<<<<<<<<<<<>"+email);
                 }
             }
 
