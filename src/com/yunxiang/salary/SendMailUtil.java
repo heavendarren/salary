@@ -10,10 +10,12 @@ import org.springframework.core.io.DefaultResourceLoader;
 import org.springframework.core.io.Resource;
 import org.springframework.ui.freemarker.FreeMarkerTemplateUtils;
 
+import javax.swing.*;
 import java.io.File;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
+import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -23,12 +25,12 @@ import java.util.regex.Pattern;
 public class SendMailUtil {
 
 	// private static final String smtphost = "192.168.1.70";
-	private static final String from = "heavendarren@126.com";
-	private static final String fromName = "老公";
+	private static final String from = "815966365@qq.com";
+	private static final String fromName = "孙冰冰";
 	private static final String charSet = "utf-8";
-	private static final String username = "heavendarren@126.com";
+	private static final String username = "815966365@qq.com";
 	private static final String password = "wqx070906";
-
+	static Logger logger = Logger.getLogger(SendMailUtil.class.getName());
 	private static Map<String, String> hostMap = new HashMap<String, String>();
 	static {
 		// 126
@@ -99,18 +101,21 @@ public class SendMailUtil {
 	 * @param map
 	 *            模板map
 	 */
-	public static void sendFtlMail(String toMailAddr, String subject,
+	public static boolean sendFtlMail(String toMailAddr, String subject,
 			String templatePath, Map<String, Object> map) {
+		String fromEmail=(String)map.get("fromEmail");
+		String fromName=(String)map.get("fromName");
+		String passWord=(String)map.get("passWord");
 		Template template = null;
 		Configuration freeMarkerConfig = null;
 		HtmlEmail hemail = new HtmlEmail();
 		try {
-			hemail.setHostName(getHost(from));
-			hemail.setSmtpPort(getSmtpPort(from));
+			hemail.setHostName(getHost(fromEmail));
+			hemail.setSmtpPort(getSmtpPort(fromEmail));
 			hemail.setCharset(charSet);
 			hemail.addTo(toMailAddr);
-			hemail.setFrom(from, fromName);
-			hemail.setAuthentication(username, password);
+			hemail.setFrom(fromEmail, fromName);
+			hemail.setAuthentication(fromEmail, passWord);
 			hemail.setSubject(subject);
 			freeMarkerConfig = new Configuration();
 			Resource path = new DefaultResourceLoader().getResource("classpath:/");
@@ -121,13 +126,15 @@ public class SendMailUtil {
 			// 模板内容转换为string
 			String htmlText = FreeMarkerTemplateUtils
 					.processTemplateIntoString(template, map);
-			System.out.println(htmlText);
+//			System.out.println(htmlText);
 			hemail.setMsg(htmlText);
 			hemail.send();
-			System.out.println("email send true!");
+			logger.info("发送邮件给   "+toMailAddr+"     成功！");
+			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("email send error!");
+			return false;
 		}
 	}
 
@@ -286,7 +293,7 @@ public class SendMailUtil {
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("username", "付贱人");
 		String templatePath = "salary.ftl";
-		sendFtlMail("1285547412@qq.com", "sendemail test!", templatePath, map);
+//		sendFtlMail("1285547412@qq.com", "sendemail test!", templatePath, map);
 
 		// System.out.println(getFileName("mailtemplate/test.ftl"));
 	}
